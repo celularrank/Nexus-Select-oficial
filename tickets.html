@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d0b">
+
+  <title>Central de Tickets | Nexus Select</title>
+  <meta
+    name="description"
+    content="Central oficial de atendimento da Nexus Select."
+  >
+
+  <link rel="stylesheet" href="tickets.css">
+  <script src="tickets.js" defer></script>
+</head>
+
+<body>
+  <header class="ticket-header">
+    <a class="ticket-brand" href="index.html">
+      NEXUS <span>SELECT</span>
+    </a>
+
+    <a class="ticket-back" href="index.html">
+      ← Voltar à loja
+    </a>
+  </header>
+
+  <main class="ticket-main">
+    <section class="ticket-hero">
+      <p class="ticket-eyebrow">CENTRAL DE ATENDIMENTO</p>
+
+      <h1>
+        Como podemos <span>ajudar?</span>
+      </h1>
+
+      <p>
+        Abra uma solicitação e acompanhe a conversa
+        com nossa equipe diretamente pelo site.
+      </p>
+    </section>
+
+    <section class="ticket-auth" id="area-login">
+      <h2>Acesse sua conta</h2>
+
+      <p>
+        Entre ou crie uma conta para abrir e acompanhar
+        seus tickets com segurança.
+      </p>
+
+      <form id="form-login">
+        <label for="email">E-mail</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="voce@exemplo.com"
+          required
+        >
+
+        <label for="senha">Senha</label>
+        <input
+          id="senha"
+          name="senha"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Sua senha"
+          minlength="8"
+          required
+        >
+
+        <button type="submit" id="botao-entrar">
+          Entrar
+        </button>
+
+        <button type="button" id="botao-cadastro">
+          Criar conta
+        </button>
+
+        <button type="button" id="botao-recuperar">
+          Esqueci minha senha
+        </button>
+
+        <p id="mensagem-login" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="ticket-dashboard" id="area-tickets" hidden>
+      <div class="ticket-section-heading">
+        <div>
+          <p class="ticket-eyebrow">SUA CONTA</p>
+          <h2>Meus tickets</h2>
+        </div>
+
+        <button type="button" id="botao-sair">
+          Sair
+        </button>
+      </div>
+
+      <button type="button" id="botao-abrir-ticket">
+        + Abrir novo ticket
+      </button>
+
+      <form id="form-ticket" hidden>
+        <label for="ticket-categoria">Categoria</label>
+
+        <select id="ticket-categoria" required>
+          <option value="">Selecione uma categoria</option>
+          <option value="compra">Dúvida sobre compra</option>
+          <option value="pedido">Problema com pedido</option>
+          <option value="produto">Produto e disponibilidade</option>
+          <option value="suporte">Suporte geral</option>
+          <option value="outro">Outro assunto</option>
+        </select>
+
+        <label for="ticket-assunto">Assunto</label>
+        <input
+          id="ticket-assunto"
+          maxlength="100"
+          placeholder="Resuma sua solicitação"
+          required
+        >
+
+        <label for="ticket-mensagem">Mensagem</label>
+        <textarea
+          id="ticket-mensagem"
+          rows="5"
+          maxlength="3000"
+          placeholder="Explique como podemos ajudar..."
+          required
+        ></textarea>
+
+        <button type="submit" id="botao-enviar-ticket">
+          Enviar solicitação
+        </button>
+
+        <button type="button" id="botao-cancelar-ticket">
+          Cancelar
+        </button>
+
+        <p id="mensagem-ticket" role="status" aria-live="polite"></p>
+      </form>
+
+      <div id="lista-tickets">
+        <p>Seus tickets aparecerão aqui após o login.</p>
+      </div>
+
+      <section id="conversa-ticket" hidden>
+        <button type="button" id="botao-voltar-tickets">
+          ← Meus tickets
+        </button>
+
+        <h2 id="conversa-titulo">Conversa do ticket</h2>
+
+        <div id="lista-mensagens" aria-live="polite"></div>
+
+        <form id="form-resposta">
+          <label for="resposta-mensagem">Sua mensagem</label>
+
+          <textarea
+            id="resposta-mensagem"
+            rows="3"
+            maxlength="3000"
+            placeholder="Escreva sua resposta..."
+            required
+          ></textarea>
+
+          <button type="submit">Enviar mensagem</button>
+          <p id="mensagem-resposta" role="status"></p>
+        </form>
+      </section>
+    </section>
+
+    <section class="ticket-admin" id="area-admin" hidden>
+      <p class="ticket-eyebrow">EQUIPE NEXUS</p>
+      <h2>Painel de atendimento</h2>
+
+      <p>
+        Área reservada para funcionários autorizados.
+      </p>
+
+      <div id="lista-tickets-admin"></div>
+    </section>
+
+    <p class="ticket-security-note">
+      Nunca envie senhas de jogos, códigos de verificação
+      ou outros dados secretos pelo atendimento.
+    </p>
+  </main>
+
+  <footer class="ticket-footer">
+    <a class="ticket-brand" href="index.html">
+      NEXUS <span>SELECT</span>
+    </a>
+
+    <p>Central de atendimento independente da Nexus Select.</p>
+    <p>© <span id="ano-atual"></span> Nexus Select.</p>
+  </footer>
+</body>
+</html>
+
