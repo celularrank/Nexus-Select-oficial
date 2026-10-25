@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Loja | Nexus Select</title>
+  <meta name="description" content="Explore o catálogo da Nexus Select e consulte suas compras pelo Discord.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loja.css">
+
+  <script src="produtos.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="loja.js" defer></script>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      NEXUS <span>SELECT</span>
+    </a>
+
+    <nav class="main-nav">
+      <a class="nav-link" href="index.html">Início</a>
+      <a class="nav-link active" href="loja.html">Loja</a>
+      <a class="nav-link" href="https://discord.gg/UbXGMjhYP" target="_blank" rel="noopener noreferrer">Discord</a>
+    </nav>
+  </header>
+
+  <main class="shop-page">
+
+    <section class="shop-hero">
+      <p class="eyebrow">CATÁLOGO OFICIAL</p>
+      <h1>Explore a <span class="gradient-text">loja.</span></h1>
+      <p>
+        Encontre produtos e serviços para Roblox e Blox Fruits.
+        Consulte a disponibilidade e finalize o atendimento pelo Discord.
+      </p>
+    </section>
+
+    <section class="shop-tools">
+      <label class="search-box">
+        <span>🔎</span>
+        <input
+          type="search"
+          id="busca-produtos"
+          placeholder="Buscar produtos..."
+          aria-label="Buscar produtos"
+        >
+      </label>
+
+      <label class="filter-box">
+        <span>Categoria</span>
+        <select id="filtro-categoria">
+          <option value="todos">Todas as categorias</option>
+          <option value="contas">Contas</option>
+          <option value="frutas">Frutas</option>
+          <option value="servicos">Serviços de farm</option>
+          <option value="itens">Soul Guitar e outros itens</option>
+          <option value="up">UP e fragmentos</option>
+        </select>
+      </label>
+
+      <label class="filter-box">
+        <span>Ordenar por</span>
+        <select id="ordenacao">
+          <option value="padrao">Recomendados</option>
+          <option value="menor-preco">Menor preço</option>
+          <option value="maior-preco">Maior preço</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="shop-categories">
+      <a href="categoria.html?tipo=contas">👤 Contas</a>
+      <a href="categoria.html?tipo=frutas">🍎 Frutas</a>
+      <a href="categoria.html?tipo=servicos">⚔️ Serviços de farm</a>
+      <a href="categoria.html?tipo=itens">🎸 Soul Guitar e itens</a>
+      <a href="categoria.html?tipo=up">📈 UP e fragmentos</a>
+    </section>
+
+    <section class="shop-products">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">NEXUS SELECT</p>
+          <h2>Nosso catálogo</h2>
+        </div>
+        <span class="product-count" id="quantidade-produtos">
+          Carregando produtos...
+        </span>
+      </div>
+
+      <div class="product-grid" id="lista-produtos">
+        <p class="loading-message">Carregando catálogo...</p>
+      </div>
+
+      <p id="sem-resultados" hidden>
+        Nenhum produto encontrado. Tente outra busca ou categoria.
+      </p>
+    </section>
+
+    <section class="shop-help">
+      <div>
+        <p class="eyebrow">PRECISA DE AJUDA?</p>
+        <h2>Fale com a nossa equipe.</h2>
+        <p>
+          Consulte preços, disponibilidade e detalhes dos produtos
+          diretamente pelo nosso Discord.
+        </p>
+      </div>
+
+      <a
+        class="button button-primary"
+        href="https://discord.gg/UbXGMjhYP"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Consultar no Discord ↗
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html">
+      NEXUS <span>SELECT</span>
+    </a>
+
+    <p>Atendimento e consultas pelo Discord.</p>
+
+    <p class="footer-disclaimer">
+      Nexus Select é um projeto independente, sem afiliação oficial
+      com Roblox ou Blox Fruits.
+    </p>
+
+    <p class="footer-disclaimer">
+      © <span id="ano-atual"></span> Nexus Select.
+    </p>
+  </footer>
+
+</body>
+</html>
