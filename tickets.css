@@ -1,0 +1,452 @@
+/* =====================================
+   NEXUS SELECT — SISTEMA DE TICKETS
+   Tema: Preto, verde neon e roxo
+   Responsivo para celulares
+===================================== */
+
+:root {
+  --fundo: #080b0e;
+  --fundo-card: #11171c;
+  --fundo-input: #0b1014;
+  --verde: #39ff88;
+  --verde-hover: #20df70;
+  --roxo: #a855f7;
+  --texto: #f2f5f7;
+  --texto-secundario: #a5b0b9;
+  --borda: #263139;
+  --erro: #ff5d6c;
+  --sucesso: #39ff88;
+  --raio: 14px;
+  --sombra: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(168, 85, 247, 0.10),
+      transparent 35%
+    ),
+    var(--fundo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+a {
+  color: var(--verde);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--roxo);
+}
+
+/* CABEÇALHO */
+
+header {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: rgba(17, 23, 28, 0.92);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+header h1 {
+  color: var(--verde);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 1.3;
+  text-shadow: 0 0 15px rgba(57, 255, 136, 0.18);
+}
+
+header p {
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+p {
+  overflow-wrap: anywhere;
+}
+
+/* CARTÕES */
+
+#form-login,
+#area-tickets,
+#form-ticket,
+#conversa-ticket,
+#area-admin {
+  background: var(--fundo-card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: clamp(18px, 4vw, 28px);
+  box-shadow: var(--sombra);
+}
+
+#form-login {
+  max-width: 520px;
+  margin: 35px auto;
+}
+
+#form-login h2 {
+  color: var(--verde);
+}
+
+#area-tickets,
+#form-ticket,
+#conversa-ticket,
+#area-admin {
+  margin-top: 22px;
+}
+
+/* CAMPOS E FORMULÁRIOS */
+
+label {
+  display: block;
+  margin: 15px 0 7px;
+  color: var(--texto);
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  background: var(--fundo-input);
+  color: var(--texto);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #7f8b95;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 3px rgba(57, 255, 136, 0.10);
+}
+
+select {
+  appearance: auto;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline-block;
+  width: auto;
+}
+
+/* BOTÕES */
+
+button {
+  min-height: 44px;
+  padding: 11px 17px;
+  margin: 8px 6px 0 0;
+  color: #07110b;
+  background: var(--verde);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-weight: bold;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--verde-hover);
+  box-shadow: 0 0 16px rgba(57, 255, 136, 0.15);
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+#botao-recuperar,
+#botao-cancelar-ticket {
+  color: var(--texto);
+  background: #252d35;
+  border-color: var(--borda);
+}
+
+#botao-recuperar:hover,
+#botao-cancelar-ticket:hover {
+  background: #343e49;
+}
+
+#botao-abrir-ticket {
+  background: var(--roxo);
+  color: white;
+}
+
+#botao-abrir-ticket:hover {
+  background: #9333ea;
+}
+
+/* MENSAGENS DE STATUS */
+
+#mensagem-login,
+#mensagem-ticket,
+#mensagem-resposta {
+  margin-top: 12px;
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+.erro {
+  color: var(--erro);
+}
+
+.sucesso {
+  color: var(--sucesso);
+}
+
+/* LISTA DE TICKETS */
+
+#lista-tickets,
+#lista-tickets-admin,
+#lista-mensagens {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.ticket,
+.ticket-card,
+.mensagem,
+.ticket-item {
+  min-width: 0;
+  padding: 17px;
+  background: #0b1116;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.ticket:hover,
+.ticket-card:hover,
+.ticket-item:hover {
+  border-color: rgba(57, 255, 136, 0.55);
+}
+
+.ticket h3,
+.ticket-card h3,
+.ticket-item h3 {
+  color: var(--verde);
+}
+
+.ticket p,
+.ticket-card p,
+.ticket-item p {
+  margin-top: 5px;
+  color: var(--texto-secundario);
+}
+
+.ticket button,
+.ticket-card button,
+.ticket-item button {
+  margin-top: 12px;
+}
+
+/* STATUS DOS TICKETS */
+
+.status {
+  display: inline-block;
+  margin: 6px 0;
+  padding: 4px 10px;
+  color: var(--verde);
+  background: rgba(57, 255, 136, 0.10);
+  border: 1px solid rgba(57, 255, 136, 0.25);
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status.aberto {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.10);
+  border-color: rgba(96, 165, 250, 0.30);
+}
+
+.status.em-andamento {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.10);
+  border-color: rgba(251, 191, 36, 0.30);
+}
+
+.status.fechado {
+  color: #b8c0c8;
+  background: rgba(184, 192, 200, 0.10);
+  border-color: rgba(184, 192, 200, 0.25);
+}
+
+/* CONVERSA DO TICKET */
+
+#conversa-ticket {
+  border-top: 2px solid var(--roxo);
+}
+
+.mensagem {
+  border-left: 3px solid var(--roxo);
+}
+
+.mensagem p {
+  margin-top: 8px;
+  white-space: pre-wrap;
+}
+
+.mensagem strong {
+  color: var(--verde);
+}
+
+.mensagem small {
+  display: block;
+  margin-top: 8px;
+  color: var(--texto-secundario);
+}
+
+/* RODAPÉ */
+
+footer {
+  max-width: 1100px;
+  margin: 35px auto 0;
+  padding: 20px 10px;
+  color: var(--texto-secundario);
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--borda);
+}
+
+footer a {
+  margin: 0 5px;
+}
+
+/* FOCO PARA ACESSIBILIDADE */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--roxo);
+  outline-offset: 4px;
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  header {
+    padding: 17px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #form-login,
+  #area-tickets,
+  #form-ticket,
+  #conversa-ticket,
+  #area-admin {
+    padding: 17px;
+  }
+
+  button {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+
+  footer a {
+    display: inline-block;
+    margin: 5px;
+  }
+}
+
+/* MOVIMENTO REDUZIDO */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
