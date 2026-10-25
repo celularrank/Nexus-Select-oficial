@@ -1,4 +1,3 @@
-
 /* ==========================================
    NEXUS SELECT — SISTEMA DE TICKETS
    Autenticação, chamados e mensagens
