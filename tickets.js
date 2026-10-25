@@ -14,8 +14,9 @@
   NUNCA use a service_role ou uma chave secreta.
 */
 
-const SUPABASE_URL = "https://seu-projeto.supabase.co";
-const SUPABASE_PUBLIC_KEY = "sb_publishable_sua_chave_publica";
+
+const SUPABASE_URL = "https://gkerrxdxnncdslcsynvp.supabase.co";
+const SUPABASE_PUBLIC_KEY = "sb_publishable_Nc5pHHpxnfsQ3dIthgX8WQ_73jrPkOl";
 
 let supabaseClient = null;
 let usuarioAtual = null;
