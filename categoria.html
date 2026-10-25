@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Categoria | Nexus Select</title>
+  <meta
+    name="description"
+    content="Explore as categorias de produtos e serviços da Nexus Select."
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loja.css">
+
+  <script src="produtos.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="loja.js" defer></script>
+  <script src="categoria.js" defer></script>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      NEXUS <span>SELECT</span>
+    </a>
+
+    <nav class="main-nav">
+      <a class="nav-link" href="index.html">Início</a>
+      <a class="nav-link" href="loja.html">Loja</a>
+      <a
+        class="nav-link"
+        href="https://discord.gg/UbXGMjhYP"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Discord
+      </a>
+    </nav>
+  </header>
+
+  <main class="shop-page">
+
+    <section class="shop-hero">
+      <a class="back-link" href="loja.html">← Voltar para a loja</a>
+
+      <p class="eyebrow" id="categoria-etiqueta">
+        NEXUS SELECT
+      </p>
+
+      <h1 id="categoria-titulo">
+        Carregando <span class="gradient-text">categoria...</span>
+      </h1>
+
+      <p id="categoria-descricao">
+        Estamos preparando os produtos desta categoria.
+      </p>
+    </section>
+
+    <section class="shop-tools">
+      <label class="search-box">
+        <span>🔎</span>
+        <input
+          type="search"
+          id="busca-produtos"
+          placeholder="Buscar nesta categoria..."
+          aria-label="Buscar nesta categoria"
+        >
+      </label>
+
+      <label class="filter-box">
+        <span>Ordenar por</span>
+        <select id="ordenacao">
+          <option value="padrao">Recomendados</option>
+          <option value="menor-preco">Menor preço</option>
+          <option value="maior-preco">Maior preço</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="shop-products">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CATÁLOGO</p>
+          <h2 id="titulo-lista">Produtos disponíveis</h2>
+        </div>
+
+        <span class="product-count" id="quantidade-produtos">
+          Carregando produtos...
+        </span>
+      </div>
+
+      <div class="product-grid" id="lista-produtos">
+        <p class="loading-message">
+          Carregando produtos...
+        </p>
+      </div>
+
+      <p id="sem-resultados" hidden>
+        Nenhum produto encontrado nesta categoria.
+        Tente outra busca ou volte para a loja.
+      </p>
+    </section>
+
+    <section class="shop-help">
+      <div>
+        <p class="eyebrow">ATENDIMENTO</p>
+        <h2>Não encontrou o que procura?</h2>
+        <p>
+          Entre no Discord para consultar a disponibilidade
+          e tirar suas dúvidas.
+        </p>
+      </div>
+
+      <a
+        class="button button-primary"
+        href="https://discord.gg/UbXGMjhYP"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Falar com a equipe ↗
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html">
+      NEXUS <span>SELECT</span>
+    </a>
+
+    <p>Atendimento e consultas pelo Discord.</p>
+
+    <p class="footer-disclaimer">
+      Nexus Select é um projeto independente, sem afiliação oficial
+      com Roblox ou Blox Fruits.
+    </p>
+
+    <p class="footer-disclaimer">
+      © <span id="ano-atual"></span> Nexus Select.
+    </p>
+  </footer>
+
+</body>
+</html>
