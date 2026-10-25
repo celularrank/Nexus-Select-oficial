@@ -1,0 +1,65 @@
+
+-- TABELA DE MENSAGENS DOS TICKETS
+create table if not exists public.ticket_messages (
+    id uuid primary key default gen_random_uuid(),
+
+    ticket_id uuid not null
+        references public.tickets(id) on delete cascade,
+
+    user_id uuid not null
+        references auth.users(id) on delete cascade,
+
+    mensagem text not null
+        check (char_length(mensagem) between 1 and 3000),
+
+    created_at timestamptz not null default now()
+);
+
+-- ÍNDICE PARA CARREGAR AS CONVERSAS
+create index if not exists ticket_messages_ticket_id_idx
+    on public.ticket_messages(ticket_id, created_at);
+
+-- ATIVAR SEGURANÇA
+alter table public.ticket_messages
+enable row level security;
+
+-- PERMITIR CONSULTAS E ENVIO PARA USUÁRIOS LOGADOS
+grant select, insert
+on public.ticket_messages
+to authenticated;
+
+-- CLIENTE SÓ PODE VER MENSAGENS DOS PRÓPRIOS TICKETS
+drop policy if exists "Clientes veem mensagens dos seus tickets"
+on public.ticket_messages;
+
+create policy "Clientes veem mensagens dos seus tickets"
+on public.ticket_messages
+for select
+to authenticated
+using (
+    exists (
+        select 1
+        from public.tickets t
+        where t.id = ticket_id
+          and t.user_id = (select auth.uid())
+    )
+);
+
+-- CLIENTE SÓ PODE RESPONDER NOS PRÓPRIOS TICKETS ABERTOS
+drop policy if exists "Clientes enviam mensagens nos seus tickets"
+on public.ticket_messages;
+
+create policy "Clientes enviam mensagens nos seus tickets"
+on public.ticket_messages
+for insert
+to authenticated
+with check (
+    user_id = (select auth.uid())
+    and exists (
+        select 1
+        from public.tickets t
+        where t.id = ticket_id
+          and t.user_id = (select auth.uid())
+          and t.status <> 'fechado'
+    )
+);
