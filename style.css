@@ -1,3 +1,26 @@
+
+/* BOTÃO DO SISTEMA DE TICKETS */
+.botao-tickets {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 22px;
+  margin: 8px;
+  border: 1px solid #39ff88;
+  border-radius: 12px;
+  background: #10251b;
+  color: #39ff88;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.botao-tickets:hover {
+  background: #39ff88;
+  color: #07110b;
+  transform: translateY(-2px);
+}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root{
