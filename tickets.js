@@ -91,6 +91,15 @@ function nomeStatus(status) {
 
 function exibirErro(erro, contexto) {
   console.error(contexto, erro);
+  const mensagem = `${contexto}: ${erro?.message || "Erro desconhecido"}`;
+  const elemento = document.querySelector("#mensagem-login");
+
+  if (elemento) {
+    elemento.textContent = mensagem;
+  } else {
+    alert(mensagem);
+  }
+}
 
   // Não expõe detalhes técnicos ou dados internos ao usuário.
   return `${contexto}. Verifique a configuração e tente novamente.`;
